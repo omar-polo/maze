@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Maze"
-run/main_scene="res://src/menu/Menu.tscn"
+run/main_scene="res://src/menu/Menu2/Main Menu.tscn"
 config/icon="res://assets/player.png"
 
 [rendering]
