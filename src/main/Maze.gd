@@ -1,7 +1,7 @@
 extends Node2D
 
-export (int) var height := 16
-export (int) var width := 16
+export (int) var height := 6
+export (int) var width := 6
 
 var _maze := []
 var _queue := []
