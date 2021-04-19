@@ -6,8 +6,21 @@ const sprite_size = 64
 func _ready() -> void:
 	var width: int = $Maze.width
 	var height: int = $Maze.height
-	$Portal.position = Vector2(width - 1, height - 1) * sprite_size * 2
+
+	var player: Vector2
+	var portal: Vector2
+
+	while true:
+		player = Vector2(int(randf() * width), int(randf() * height))
+		portal = Vector2(int(randf() * width), int(randf() * height))
+
+		if player.distance_to(portal) > float(width) / 2:
+			break
+
+	$Portal.position = portal * sprite_size * 2
 	$Portal.position += Vector2(sprite_size, sprite_size) / 2
+
+	$Player.position = player * sprite_size * 2 + Vector2(32, 32)
 
 	$Player.set_process(true)
 
