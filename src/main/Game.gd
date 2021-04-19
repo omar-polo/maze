@@ -17,7 +17,12 @@ func _ready() -> void:
 		if player.distance_to(portal) > float(width) / 2:
 			break
 
-	$Portal.position = portal * sprite_size * 2
+	# each point occupies two places in the grid (per direction, so
+	# actually four), hence the multiplication.  Then multiply to
+	# sprite_size to get an actual position on the world.
+	$Portal.position = portal * 2 * sprite_size
+
+	# patch the portal position so it appears centered in the grid.
 	$Portal.position += Vector2(sprite_size, sprite_size) / 2
 
 	$Player.position = player * sprite_size * 2 + Vector2(32, 32)
