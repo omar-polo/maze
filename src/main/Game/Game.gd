@@ -30,10 +30,14 @@ func _ready() -> void:
 	$Player.set_process(true)
 
 
+func _switch_to(scene : String) -> void:
+	var _t = get_tree().change_scene(scene)
+
+
 func _on_Portal_entered(body) -> void:
 	print("body is ", body)
 	if body is KinematicBody2D:
 		$Player.set_process(false)
 		$Player.set_physics_process(false)
-		yield(get_tree().create_timer(2), 'timeout')
-		var _t = get_tree().change_scene("res://src/menu/Menu.tscn")
+		yield($Player.warp_animation(), 'completed')
+		_switch_to("res://src/main/Loading/Loading.tscn")

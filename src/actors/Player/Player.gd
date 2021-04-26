@@ -10,3 +10,8 @@ func _physics_process(_delta: float) -> void:
 	dir.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	dir = dir.normalized()
 	velocity = move_and_slide(dir * speed)
+
+
+func warp_animation() -> void:
+	# TODO: animate
+	yield(get_tree().create_timer(1.0), 'timeout')
